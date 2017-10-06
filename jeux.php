@@ -18,7 +18,7 @@ echo $twig->render('bandeau.twig', array('onglet'=>3));
 
 echo $twig->render('bandeau_manche.twig', array('manche'=>$manche));
 
-echo $twig->render('liste-match-jeux.twig', array('titre'=>'Match en cours','tab'=>$tab));
+echo $twig->render('liste-match-jeux.twig', array('titre'=>'Match en cours','tab'=>$tab,'manche'=>$manche));
 
 echo $twig->render('footer.twig',array('page'=>'jeux'));
 ?>

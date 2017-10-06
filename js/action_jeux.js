@@ -13,6 +13,8 @@ $('button.btn-warning').click(function(){
   });
 });
 
+
+// sécurité pour la saisie des scores
 $('input').focus(function() {
   $('button.btn-warning').prop('disabled', true);
   $('input').prop('disabled', true);

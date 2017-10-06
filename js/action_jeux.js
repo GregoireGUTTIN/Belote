@@ -12,3 +12,13 @@ $('button.btn-warning').click(function(){
     location.reload(true);
   });
 });
+
+$('input').focus(function() {
+  $('button.btn-warning').prop('disabled', true);
+  $('input').prop('disabled', true);
+  var info = $(this).attr('id').split('_');
+  $('#bouton_'+info[1]).prop('disabled', false);
+  $('#score1_'+info[1]).prop('disabled', false);
+  $('#score2_'+info[1]).prop('disabled', false);
+  //alert(info[1]);
+});

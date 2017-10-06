@@ -10,7 +10,7 @@
                   <span class="input-group-addon w-75" id="equipe1">({{ value['ID1'] }}) : {{ value['NomEquipe1'] }}</span>
                   <input type="number" class="form-control" id="score1_{{ value['ID'] }}" aria-describedby="equipe1" value='{{ value['S1_'~manche] }}'>
                 </div>
-                <button type='button' class='btn btn-warning btn-sm col-sm-1' value='{{ value['ID'] }}'>{{ loop.index }}</button>
+                <button type='button' class='btn btn-warning btn-sm col-sm-1' id='bouton_{{ value['ID'] }}' value='{{ value['ID'] }}'>{{ loop.index }}</button>
                 <div class="input-group col-sm-5">
                   <input type="number" class="form-control" id="score2_{{ value['ID'] }}" aria-describedby="equipe2" value='{{ value['S2_'~manche] }}'>
                   <span class="input-group-addon w-75 text-right" id="equipe2">{{ value['NomEquipe2'] }} : ({{ value['ID2'] }})</span>

@@ -3,8 +3,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/popup_formulaire.js"></script>
-<script src="js/action_equipe.js"></script>
-<script src="js/action_match.js"></script>
+{% if page == "equipe" %}<script src="js/action_equipe.js"></script>{% endif %}
+{% if page == "match" %}<script src="js/action_match.js"></script>{% endif %}
 </body>
 </HTML>

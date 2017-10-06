@@ -1,8 +1,6 @@
 $('div.btn-group button.btn-info').click(function(){
   var id = $(this).text();
-
   //alert( "Data Loaded: " + id );
-
   if (localStorage.equipe1){
     $.post( "action_match.php", {
           action: "ajout",
@@ -34,5 +32,22 @@ $('button.btn-warning').click(function(){
   .done(function( data ) {
     //alert( "Data Loaded: " + data );
     location.reload(true);
+  });
+});
+
+
+$('td button.btn-info').click(function(){
+  var id = $(this).text();
+  $.post( "action_equipe.php", {
+        action: "info",
+        id: id
+        })
+  .done(function( data ) {
+    //alert( "Data Loaded: " + data );
+    var equipe = jQuery.parseJSON(data);
+     $('#num').val(id);
+     $('#nom1_mod').val(equipe.nom1);
+     $('#nom2_mod').val(equipe.nom2);
+     $('#form_modif_equipe').focus();
   });
 });

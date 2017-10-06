@@ -18,12 +18,15 @@ class requete
     'liste_equipe_sans_match'=>"SELECT ID as 'Num équipe' ,Nom_1 || ' - ' || Nom_2 AS 'Nom Equipe' FROM Equipe
                                 WHERE ID NOT IN (SELECT ID_Equipe_1 FROM Match WHERE ID_Match = :manche)
                                 AND ID NOT IN (SELECT ID_Equipe_2 FROM Match WHERE ID_Match = :manche)",
-    'liste_match'=>"SELECT Match.ID, '(' || Equipe1.ID || ') ' || Equipe1.Nom_1 || ' - ' || Equipe1.Nom_2 AS NomEquipe1,
-                                Equipe2.Nom_1 || ' - ' || Equipe2.Nom_2 || ' (' || Equipe2.ID || ')' AS NomEquipe2
-                                FROM Match
-                                INNER JOIN Equipe AS Equipe1 ON ID_Equipe_1 = Equipe1.ID
-                                INNER JOIN Equipe AS Equipe2 ON ID_Equipe_2 = Equipe2.ID
-                                WHERE ID_Match = :manche",
+    'liste_match'=>"SELECT Match.ID,
+                           Equipe1.ID AS ID1,
+                           Equipe1.Nom_1 || ' - ' || Equipe1.Nom_2 AS NomEquipe1,
+                           Equipe2.ID AS ID2,
+                           Equipe2.Nom_1 || ' - ' || Equipe2.Nom_2 AS NomEquipe2
+                           FROM Match
+                           INNER JOIN Equipe AS Equipe1 ON ID_Equipe_1 = Equipe1.ID
+                           INNER JOIN Equipe AS Equipe2 ON ID_Equipe_2 = Equipe2.ID
+                           WHERE ID_Match = :manche",
     'ajout_match' => "INSERT INTO  Match (ID_Equipe_1, ID_Equipe_2, ID_Match)
                               VALUES (:equipe1, :equipe2, :manche)",
     'sup_match' => "DELETE FROM Match WHERE ID = :id",

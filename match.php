@@ -29,5 +29,5 @@ echo "<div class='row'>";
   echo "</div>";
 echo "</div>";
 
-echo $twig->render('footer.twig', array('page' => 'match' ));
+echo $twig->render('footer.twig' ,array('page'=>'match'));
 ?>

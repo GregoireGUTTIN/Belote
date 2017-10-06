@@ -6,9 +6,9 @@
         <div id="attente"></div>
             {% for key, value in tab %}
               <div class='row'>
-                      <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>{{ value['NomEquipe1'] }}</button>
+                      <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>({{ value['ID1'] }}) : {{ value['NomEquipe1'] }}</button>
                       <button type='button' class='btn btn-warning btn-sm col-sm-2' value='{{ value['ID'] }}'>{{ loop.index }}</button>
-                      <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>{{ value['NomEquipe2'] }}</button>
+                      <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>{{ value['NomEquipe2'] }} : ({{ value['ID2'] }})</button>
               </div>
             {% endfor %}
         </div>

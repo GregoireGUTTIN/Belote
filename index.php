@@ -23,5 +23,5 @@ echo $twig->render('tableau.twig', array('titre' => "Liste des équipes",'tab' =
 echo $twig->render('form_ajout_equipe.twig', array('titre'=>"Ajout d'une équipe", 'id_e' => $nombre_equipe+1));
 echo $twig->render('form_modif_equipe.twig', array('titre'=>"Modification d'une équipe"));
 
-echo $twig->render('footer.twig');
+echo $twig->render('footer.twig',array('page'=>'equipe'));
 ?>

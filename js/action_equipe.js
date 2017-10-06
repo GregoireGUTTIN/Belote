@@ -30,3 +30,10 @@ $('#reset').click(function(){
     location.reload(true);
   });
 });
+
+
+$('#form_ajout_equipe').on('shown.bs.modal', function () {
+  $('#nom1').val("");
+  $('#nom2').val("");
+  $('#form_ajout_equipe').focus()
+});

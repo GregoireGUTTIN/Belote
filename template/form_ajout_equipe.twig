@@ -1,0 +1,38 @@
+<div class="modal" id="form_ajout_equipe">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>{{ titre }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="input-group col-md-12">
+                  <span class="input-group-addon" id="numero">Numéro</span>
+                  <input type="text" class="form-control" value={{ id_e }} aria-describedby="numero" disabled>
+                </div>
+            </div>
+            <div class="row">
+              <div class="input-group col-md-12">
+                <span class="input-group-addon" id="nomj1">Nom joureur 1</span>
+                <input type='text' class="form-control" id='nom1' aria-describedby="nomj1" name='nom1' placeholder='nom du joueur 1'/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-group col-md-12">
+                <span class="input-group-addon" id="nomj2">Nom joureur 2</span>
+                <input type='text' class="form-control" id='nom2' aria-describedby="nom2" name='nomj2' placeholder='nom du joueur 2'/>
+              </div>
+            </div>
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" id='ajout' class="btn btn-primary">Ajout</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Pas envie</button>
+      </div>
+    </div>
+  </div>
+</div>

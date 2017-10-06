@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        <div class='row'>
+          <div class='col-sm-4' >{{ titre }} </div>
+        {% if nombre_equipe%2 == 0 and nombre_equipe != 0 %}
+            <button class="btn btn-success col-3" disabled>Nombre d'&Eacute;quipe Correct</button>
+        {% else %}
+            <button class="btn btn-danger col-3" disabled>Nombre d'&Eacute;quipe Incorrect</button>
+        {% endif %}
+        <button type="button" class="btn btn-primary col-2 ml-auto" data-toggle="modal" data-target="#form_ajout_equipe">
+            Ajout équipe
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+        <table id='tab_list' class='table table-sm table-hover table-striped'>
+            {% for key, value in tab %}
+                {% if loop.index == 1 %}
+                <thead class='thead-inverse'>
+                    <tr>
+                        {% for titre, v in value %}
+                            <th>{{ titre }}</th>
+                        {% endfor %}
+                        {% for titre, v in value %}
+                            <th>{{ titre }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                {% endif %}
+                {% if loop.index%2 != 0 %}
+                        <tr>
+                {% endif %}
+                {% for titre, v in value %}
+                  {% if loop.first %}
+                    <td><button type='button' class='btn btn-info btn-sm' data-toggle="modal" data-target="#form_modif_equipe">{{ v }}</button></td>
+                  {% else %}
+                    <td>{{ v }}</td>
+                  {% endif %}
+                {% endfor %}
+                {% if loop.index%2 == 0 %}
+                        </tr>
+                {% endif %}
+                {% if loop.last %}
+                    </tbody>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</div>

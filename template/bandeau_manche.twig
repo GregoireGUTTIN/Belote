@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header text-center">
+        Choix de la manche
+    </div>
+    <div class="card-body">
+      <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+          <li class="page-item {% if manche == 1 %} active {% endif %}">
+            <a class="page-link" href="match.php?manche=1">manche 1</a>
+          </li>
+          <li class="page-item {% if manche == 2 %} active {% endif %}">
+            <a class="page-link" href="match.php?manche=2">manche 2</a>
+          </li>
+          <li class="page-item {% if manche == 3 %} active {% endif %}">
+            <a class="page-link" href="match.php?manche=3">manche 3</a>
+          </li>
+          <li class="page-item {% if manche == 4 %} active {% endif %}">
+            <a class="page-link" href="match.php?manche=4">manche 4</a>
+          </li>
+        </ul>
+      </nav>
+      <input type="hidden" id="nummanche" value='{{ manche }}'>
+    </div>
+</div>

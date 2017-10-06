@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header text-center">
+        Concours de Belote Saint Franc Loisirs
+    </div>
+    <div class="card-body">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link {% if onglet == 1 %} active {% endif %}" href="index.php">Equipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if onglet == 2 %} active {% endif %}" href="match.php">Match</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if onglet == 3 %} active {% endif %}" href="jeux.php">Jeux</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if onglet == 4 %} active {% endif %}" href="bilan.php">Bilan</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <button type='button' class='btn btn-outline-danger' id='reset'>Reset</button>
+        </li>
+      </ul>
+    </div>
+</div>

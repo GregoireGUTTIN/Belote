@@ -1,16 +1,22 @@
 <div class="card">
-    <div class="card-header">
-          {{ titre }}
+  <div class="card-header">
+    <div class='row'>
+        <span class='col-sm-9'>{{ titre }}</span>
+        {% if manche != 1 %}
+          <button type='button' class='btn btn-dark col-sm-3' id='active'>Modification</button>
+        {% endif %}
     </div>
-    <div class="card-body">
-        <div id="attente"></div>
-            {% for key, value in tab %}
-              <div class='row'>
-                      <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>({{ value['ID1'] }}) : {{ value['NomEquipe1'] }}</button>
-                      <button type='button' class='btn btn-warning btn-sm col-sm-2' value='{{ value['ID'] }}'>{{ loop.index }}</button>
-                      <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>{{ value['NomEquipe2'] }} : ({{ value['ID2'] }})</button>
-              </div>
-            {% endfor %}
-        </div>
+  </div>
+  <div class="card-body">
+      <div id="attente"></div>
+          {% for key, value in tab %}
+            <div class='row pb-1'>
+                    <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>({{ value['ID1'] }}) : {{ value['NomEquipe1'] }}</button>
+                    <button type='button' class='btn btn-warning btn-sm col-sm-2' value='{{ value['ID'] }}' {% if manche != 1 %} disabled {% endif %}>
+                      {{ loop.index }}
+                    </button>
+                    <button type='button' class='btn btn-info btn-sm col-sm-5' disabled>{{ value['NomEquipe2'] }} : ({{ value['ID2'] }})</button>
+            </div>
+          {% endfor %}
     </div>
 </div>

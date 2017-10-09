@@ -25,7 +25,7 @@ echo "<div class='row'>";
     echo $twig->render('tableau-liste-match.twig', array('titre'=>'liste equipe sans match','tab'=>$tab));
   echo "</div>";
   echo "<div class='col-sm-6'>";
-    echo $twig->render('tableau-match.twig', array('titre'=>'liste match','tab'=>$tab_match));
+    echo $twig->render('tableau-match.twig', array('titre'=>'liste match','tab'=>$tab_match,'manche'=>$manche));
   echo "</div>";
 echo "</div>";
 

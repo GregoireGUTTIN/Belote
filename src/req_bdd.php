@@ -56,6 +56,13 @@ class requete
     'maj_score_vic_4_manche' => "UPDATE Equipe set Match_4 = :score,Vic_4 = :vic WHERE ID = :id",
     'maj_score_vic' => "UPDATE Equipe set Score = :score,Nb_Victoire = :vic WHERE ID = :id",
 
+    'liste_resultat_equipe'  => "SELECT ID as 'Num équipe' ,Nom_1 || ' - ' || Nom_2 AS 'Nom Equipe',
+                          Match_1,Match_2,Match_3,Match_4,
+                          Vic_1,Vic_2,Vic_3,Vic_4,
+                          Nb_Victoire,
+                          Score
+                        FROM Equipe
+                        ORDER BY Nb_Victoire DESC, Score DESC",
 
 
     'create_equipe' => "CREATE TABLE IF NOT EXISTS `Equipe` (

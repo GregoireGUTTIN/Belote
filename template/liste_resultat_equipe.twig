@@ -1,0 +1,73 @@
+<div class="card text-center">
+    <div class="card-header ">
+          {{ titre }}
+    </div>
+    <div class="card-body">
+      <table class='table table-sm table-hover table-striped'>
+        <thead class='thead-inverse'>
+          <tr>
+            <th>Nom Equipe</th>
+            <th>Score 1</th>
+            <th>Score 2</th>
+            <th>Score 3</th>
+            <th>Score 4</th>
+            <th>Nombre de victoire</th>
+            <th>Score Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for key, value in tab %}
+              <tr>
+                <td>({{ value['Num équipe'] }}) {{ value['Nom Equipe'] }}</td>
+                <td>
+                    {% if value['Match_1'] == 0 %}
+                      <div class="alert alert-warning p-0 m-0" role="alert">
+                    {% elseif value['Vic_1'] == 1 %}
+                      <div class="alert alert-success p-0 m-0" role="alert">
+                    {% else  %}
+                      <div class="alert alert-danger p-0 m-0" role="alert">
+                    {% endif %}
+                      {{ value['Match_1'] }}
+                    </div>
+                </td>
+                <td>
+                    {% if value['Match_2'] == 0 %}
+                      <div class="alert alert-warning p-0 m-0" role="alert">
+                    {% elseif value['Vic_2'] == 1 %}
+                      <div class="alert alert-success p-0 m-0" role="alert">
+                    {% else  %}
+                      <div class="alert alert-danger p-0 m-0" role="alert">
+                    {% endif %}
+                      {{ value['Match_2'] }}
+                    </div>
+                </td>
+                <td>
+                    {% if value['Match_3'] == 0 %}
+                      <div class="alert alert-warning p-0 m-0" role="alert">
+                    {% elseif value['Vic_3'] == 1 %}
+                      <div class="alert alert-success p-0 m-0" role="alert">
+                    {% else  %}
+                      <div class="alert alert-danger p-0 m-0" role="alert">
+                    {% endif %}
+                      {{ value['Match_3'] }}
+                    </div>
+                </td>
+                <td>
+                    {% if value['Match_4'] == 0 %}
+                      <div class="alert alert-warning p-0 m-0" role="alert">
+                    {% elseif value['Vic_4'] == 1 %}
+                      <div class="alert alert-success p-0 m-0" role="alert">
+                    {% else  %}
+                      <div class="alert alert-danger p-0 m-0" role="alert">
+                    {% endif %}
+                      {{ value['Match_4'] }}
+                    </div>
+                </td>
+                <td>{{ value['Nb_Victoire'] }}</td>
+                <td>{{ value['Score'] }}</td>
+              </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>

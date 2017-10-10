@@ -42,8 +42,3 @@ $('#active').click(function(){
       $('button.btn-warning').prop('disabled', true);
     }
 });
-
-$('#desactive').click(function(){
-  console.log($('button.btn-warning').prop('disabled'));
-    $('button.btn-warning').prop('disabled', true);
-});

@@ -65,6 +65,19 @@ class requete
                         ORDER BY Nb_Victoire DESC, Score DESC",
 
 
+    'existe_match' => "SELECT COUNT(ID)
+  					 FROM Match
+  					 WHERE ID_Match = :manche and
+  					 (ID_Equipe_1 = :id_equip OR ID_Equipe_2 = :id_equip)",
+
+    'id_possible' => "SELECT ID FROM Equipe
+            WHERE ID <> :id_equip
+            and ID NOT IN (SELECT ID_Equipe_2 FROM Match WHERE ID_Equipe_1 = :id_equip)
+            and ID NOT IN (SELECT ID_Equipe_1 FROM Match WHERE ID_Equipe_2 = :id_equip)
+            ORDER BY Equipe.Nb_Victoire DESC, Equipe.Score DESC",
+            // and ID NOT IN (SELECT ID_Equipe_1 FROM Match WHERE ID_Match = :manche)
+            // and ID NOT IN (SELECT ID_Equipe_2 FROM Match WHERE ID_Match = :manche)
+
     'create_equipe' => "CREATE TABLE IF NOT EXISTS `Equipe` (
                               `ID`	INTEGER NOT NULL,
                               `Nom_1`	TEXT NOT NULL,

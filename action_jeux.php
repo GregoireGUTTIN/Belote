@@ -13,7 +13,7 @@ switch($_POST['action']){
     $Vic1 = $Vic2 = 0;
     if ( $score1 > $score2 ) {// si équipe 1 a gagnée
         $Vic1 = 1;
-    }else {// Si équipe 2 a gagnée.
+    }elseif( $score1 < $score2 ) {// Si équipe 2 a gagnée.
         $Vic2 = 1;
     }
     $bdd_connect->Set("maj_score_vic_".$manche."_manche",array(':id'=>$id1,':score'=>$score1,':vic'=>$Vic1));

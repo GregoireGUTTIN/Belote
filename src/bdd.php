@@ -43,11 +43,17 @@ class bdd
         return $stmt->fetchAll();
     }
 
-    public function Count($nom_req,$tab_param=array())
+    public function Count($nom_req,$tab_param=array(),$modifier="")
     {
         $stmt = null;
         try{
-            $stmt = $this->link->prepare(requete::$req[$nom_req] );
+            if ($modifier != "") {
+              $new_requete = str_replace("%%manche%%",$modifier,requete::$req[$nom_req]);
+            }else {
+              $new_requete = requete::$req[$nom_req];
+            }
+
+            $stmt = $this->link->prepare($new_requete );
             /*foreach($tab_param as $param => $value){
                 $stmt->bindParam($param, $value);
             }*/

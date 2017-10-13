@@ -65,10 +65,15 @@ class requete
                         ORDER BY Nb_Victoire DESC, Score DESC",
 
 
-    'existe_match' => "SELECT COUNT(ID)
+    'existe_match' => "SELECT Count(ID)
   					 FROM Match
   					 WHERE ID_Match = :manche and
   					 (ID_Equipe_1 = :id_equip OR ID_Equipe_2 = :id_equip)",
+    'match_zero' => "SELECT Count(ID)
+           					 FROM Equipe
+           					 WHERE Match_%%manche%% = 0
+                     AND ( ID in (SELECT ID_Equipe_1 FROM Match WHERE ID_Match = %%manche%%)
+                            OR ID in (SELECT ID_Equipe_2 FROM Match WHERE ID_Match = %%manche%%))",
 
     'id_possible' => "SELECT ID FROM Equipe
             WHERE ID <> :id_equip

@@ -24,3 +24,17 @@ $('input').focus(function() {
   $('#score2_'+info[1]).prop('disabled', false);
   //alert(info[1]);
 });
+
+
+$('#generation').click(function() {
+  var manche = Number($('#nummanche').val()) + 1;
+  $.post( "action_match.php", {
+        action: "generation",
+        manche: manche
+  })
+  .done(function( data ) {
+    //alert( "Data Loaded: " + data );
+    location.href = "http://localhost/jeux.php?manche="+manche;
+  });
+
+});

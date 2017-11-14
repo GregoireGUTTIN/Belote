@@ -23,7 +23,7 @@ class requete
 
 
   static public $req = array(
-    'liste_equipe'  => "SELECT ID as 'Num équipe' ,Nom_1 || ' - ' || Nom_2 AS 'Nom Equipe' FROM Equipe",
+    'liste_equipe'  => "SELECT ID as 'Num équipe' ,Nom_1 || ' - ' || Nom_2 AS 'Nom Equipe' FROM Equipe ORDER BY Nb_Victoire DESC, Score DESC",
     'nombre_equipe' => "SELECT Count(ID) FROM Equipe;", // pour les fonctions count elles doivent toujours être sur le champ ID
     'nombre_match'  => "SELECT Count(ID) FROM Match WHERE ID_Match = :manche", // pour les fonctions count elles doivent toujours être sur le champ ID
     'ajout_equipe'  => "INSERT INTO  Equipe (Nom_1, Nom_2, Match_1, Match_2,	Match_3, Match_4, Nb_Victoire)
@@ -79,6 +79,8 @@ class requete
             WHERE ID <> :id_equip
             and ID NOT IN (SELECT ID_Equipe_2 FROM Match WHERE ID_Equipe_1 = :id_equip)
             and ID NOT IN (SELECT ID_Equipe_1 FROM Match WHERE ID_Equipe_2 = :id_equip)
+            and ID NOT IN (SELECT ID_Equipe_1 FROM Match WHERE ID_Match = :manche)
+            and ID NOT IN (SELECT ID_Equipe_2 FROM Match WHERE ID_Match = :manche)
             ORDER BY Equipe.Nb_Victoire DESC, Equipe.Score DESC",
             // and ID NOT IN (SELECT ID_Equipe_1 FROM Match WHERE ID_Match = :manche)
             // and ID NOT IN (SELECT ID_Equipe_2 FROM Match WHERE ID_Match = :manche)

@@ -29,9 +29,9 @@ switch($_POST['action']){
     $bdd_connect->Set('sup_match',array(':id'=>$_POST['id']));
     break;
   case 'generation':
-    $nb_equipe = $bdd_connect->Count('nombre_equipe');
-    $nb_match = $bdd_connect->Count('nombre_match',array(':manche'=>1));
     $manche = $_POST['manche'];
+    $nb_equipe = $bdd_connect->Count('nombre_equipe');
+    $nb_match = $bdd_connect->Count('nombre_match',array(':manche'=>$manche));
 
     if ($nb_match < $nb_equipe/2 ){
       //liste des équipes au complet
@@ -42,7 +42,7 @@ switch($_POST['action']){
         $existe = $bdd_connect->Count('existe_match',array(':manche'=>$manche,':id_equip'=>$equipe1));
         if($existe == 0) {
           // recherche d'une equipe contre qui il n'y a pas eu de match
-          $id_res = $bdd_connect->Get('id_possible',array(':manche'=>$manche,':id_equip'=>$equipe1));
+          $id_res = $bdd_connect->Get('id_possible',array(':id_equip'=>$equipe1,':manche'=>$manche));
           $poss = count($id_res);
           // Si une équipe a été trouvée, on ajoute le match
           if($poss != 0) {

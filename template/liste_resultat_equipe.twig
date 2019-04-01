@@ -6,6 +6,7 @@
       <table class='table table-sm table-hover table-striped'>
         <thead class='thead-inverse'>
           <tr>
+            <th>N°</th>
             <th>Nom Equipe</th>
             <th>Score 1</th>
             <th>Score 2</th>
@@ -18,6 +19,7 @@
         <tbody>
             {% for key, value in tab %}
               <tr>
+                <td><div class="alert alert-primary p-0 m-0" role="alert" style="width:30px;">{{ loop.index }}</div></td>
                 <td>({{ value['Num équipe'] }}) {{ value['Nom Equipe'] }}</td>
                 <td>
                     {% if value['Match_1'] == 0 %}

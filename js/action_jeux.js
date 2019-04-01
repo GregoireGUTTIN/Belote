@@ -34,7 +34,7 @@ $('#generation').click(function() {
   })
   .done(function( data ) {
     //alert( "Data Loaded: " + data );
-    location.href = "http://localhost/jeux.php?manche="+manche;
+    location.href = "jeux.php?manche="+manche;
   });
 
 });
